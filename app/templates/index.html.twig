@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test Task</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    </head>
+    <body>
+    <form action="/" method="post">
+        <label for="productId">Product: </label>
+        <select name="productId">
+            {% for productDto in productDtoList %}
+            <option value="{{ productDto.id }}">{{ productDto.name }} {{ productDto.price }} euro</option>
+            {% endfor %}
+        </select>
+        <p>DEXXXXXXXXX - для жителей Германии 19%
+            ITXXXXXXXXXXX - для жителей Италии 22%
+            GRXXXXXXXXX - для жителей Греции 24%
+        </p>
+        <div>
+            {% if errorFormList.taxCode is defined %}
+            <div>{{ errorFormList.taxCode }}</div>
+            <div>DEXXXXXXXXX -- пример</div>
+            {% endif %}
+            <label for="taxCode">Tax: </label>
+            <input name="taxCode" type="text">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if price is defined and country is defined %}
+    <div>Price: {{ price }}</div>
+    <div>Country: {{ country }}</div>
+    {% endif %}
+    </body>
+</html>

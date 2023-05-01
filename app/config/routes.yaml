@@ -1,0 +1,8 @@
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+    methods: GET
+post:
+    path: /
+    controller: App\Controller\IndexController::countProductPrice
+    methods: POST
